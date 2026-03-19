@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry Received | Night Music</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"MusicGroup","name":"Night Music","url":"https://nightmusic.co.nz"}
+  </script>
+</head>
+<body style="margin:0;padding:0;background:#09090e;">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne+Mono&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #09090e;
+  --cream: #ede8e1;
+  --cognac: #b87c52;
+  --muted: rgba(237,232,225,0.38);
+  --mid: rgba(237,232,225,0.62);
+  --border: rgba(237,232,225,0.07);
+}
+
+body {
+  font-family: 'Syne Mono', monospace;
+  background: var(--bg);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+/* grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.logo {
+  width: 160px;
+  margin-bottom: 56px;
+  opacity: 0.92;
+}
+
+.card {
+  text-align: center;
+  max-width: 480px;
+}
+
+.eyebrow {
+  font-family: 'Syne Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cognac);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+
+p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--mid);
+  margin-bottom: 48px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(237,232,225,0.15);
+  padding-bottom: 3px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--cream);
+  border-color: rgba(237,232,225,0.4);
+}
+</style>
+
+<img class="logo" src="assets/nightmusic-logo-light.svg" alt="Night Music" onerror="this.style.display='none'">
+
+<div class="card">
+  <div class="eyebrow">Enquiry received</div>
+  <h1>We'll be in touch soon.</h1>
+  <p>Thanks for reaching out. We typically respond within 24–48 hours.<br>In the meantime, feel free to browse the site.</p>
+  <a class="back-link" href="/">← Back to Night Music</a>
+</div>
+
+</body>
+</html>
