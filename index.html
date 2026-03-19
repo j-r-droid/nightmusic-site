@@ -350,6 +350,102 @@
   color: var(--muted);
 }
 
+/* ── TESTIMONIALS ── */
+.nm-testimonials {
+  padding: 120px 72px;
+  border-top: 1px solid var(--border);
+}
+.nm-testimonials-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.nm-testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 56px;
+}
+.nm-testimonial {
+  border-left: 1px solid var(--cognac-dim);
+  padding-left: 32px;
+}
+.nm-testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+.nm-testimonial-attr {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nm-testimonial-attr strong {
+  color: var(--mid);
+  font-weight: 400;
+}
+
+/* ── PHOTO ── */
+.nm-photo {
+  padding: 0 72px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.nm-photo-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
+}
+.nm-photo-grid img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.15);
+}
+
+/* ── FAQ ── */
+.nm-faq {
+  padding: 120px 72px;
+  border-top: 1px solid var(--border);
+}
+.nm-faq-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.nm-faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 80px;
+  margin-top: 56px;
+}
+.nm-faq-item {}
+.nm-faq-q {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.nm-faq-a {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .nm-testimonials { padding: 80px 32px; }
+  .nm-testimonial-grid { grid-template-columns: 1fr; gap: 48px; }
+  .nm-photo { padding: 0 32px; }
+  .nm-photo-grid { grid-template-columns: 1fr; }
+  .nm-photo-grid img { height: 280px; }
+  .nm-faq { padding: 80px 32px; }
+  .nm-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
 /* ── PRICING ── */
 .nm-pricing {
   padding: 120px 72px;
@@ -691,6 +787,56 @@
     </div>
   </div>
 
+  <!-- TESTIMONIALS -->
+  <section class="nm-testimonials">
+    <div class="nm-testimonials-inner">
+      <div class="nm-section-label">What people say</div>
+      <div class="nm-testimonial-grid">
+        <div class="nm-testimonial">
+          <p class="nm-testimonial-quote">"They read the room like no one else. The energy built all night and every single person was on the floor by the end."</p>
+          <p class="nm-testimonial-attr"><strong>Morning People</strong> — January 2026</p>
+        </div>
+        <div class="nm-testimonial">
+          <p class="nm-testimonial-quote">"Tight, professional, and the crowd was already moving before the main act hit the stage. Exactly what we needed for a show like this."</p>
+          <p class="nm-testimonial-attr"><strong>Plus One Touring</strong> — Fun Lovin' Criminals, James Hay Theatre, March 2026</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <div class="nm-photo">
+    <div class="nm-photo-grid">
+      <img src="assets/nm-crowd.jpg" alt="Night Music performing — crowd view" loading="lazy">
+      <img src="assets/nm-stage.jpg" alt="Night Music — sax and DJ on stage" loading="lazy">
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="nm-faq">
+    <div class="nm-faq-inner">
+      <div class="nm-section-label">Common questions</div>
+      <div class="nm-faq-grid">
+        <div class="nm-faq-item">
+          <p class="nm-faq-q">What does a typical set look like?</p>
+          <p class="nm-faq-a">A curated DJ set with live saxophone woven throughout — building from ambient to high-energy across the evening. We tailor the arc to your event and your crowd.</p>
+        </div>
+        <div class="nm-faq-item">
+          <p class="nm-faq-q">How long do you play?</p>
+          <p class="nm-faq-a">Standard sets run 2–4 hours. We'll work with your timeline and venue to build a plan that fits.</p>
+        </div>
+        <div class="nm-faq-item">
+          <p class="nm-faq-q">Do you bring your own sound?</p>
+          <p class="nm-faq-a">Yes. Professional PA, DJ setup, and all cabling included. We arrive, set up, and manage everything.</p>
+        </div>
+        <div class="nm-faq-item">
+          <p class="nm-faq-q">Can we request songs?</p>
+          <p class="nm-faq-a">We're happy to take guidance on the vibe — genres, mood, must-plays. We'll blend them into a set that feels intentional, not like a jukebox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="nm-pricing">
     <div class="nm-pricing-inner">
@@ -741,6 +887,9 @@
           <input type="email" name="email" placeholder="Email address" required>
         </div>
         <div>
+          <input type="tel" name="phone" placeholder="Phone number (optional)">
+        </div>
+        <div>
           <input type="text" name="event_date" placeholder="Event date (if known)">
         </div>
         <div>
@@ -762,6 +911,7 @@
         </button>
       </form>
       <p class="nm-form-success" id="form-success">Thanks — we'll be in touch within 24 hours.</p>
+      <p style="font-size:12px;letter-spacing:0.1em;color:var(--muted);margin-top:32px;">Or email us directly at <a href="mailto:bookings@nightmusic.co.nz" style="color:var(--cognac);text-decoration:none;border-bottom:1px solid rgba(184,124,82,0.3);">bookings@nightmusic.co.nz</a></p>
     </div>
   </section>
 
