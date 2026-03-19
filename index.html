@@ -427,17 +427,34 @@
   gap: 48px 80px;
   margin-top: 56px;
 }
-.nm-faq-item {}
-.nm-faq-q {
+.nm-faq-item summary {
   font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--cream);
-  margin-bottom: 12px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.nm-faq-item summary::-webkit-details-marker { display: none; }
+.nm-faq-item summary::after {
+  content: '+';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--cognac);
+  transition: transform 0.3s;
+}
+.nm-faq-item[open] summary::after {
+  transform: rotate(45deg);
 }
 .nm-faq-a {
   font-size: 14px;
   line-height: 2;
   color: var(--muted);
+  padding: 12px 0 24px;
 }
 
 @media (max-width: 900px) {
@@ -822,22 +839,22 @@
     <div class="nm-faq-inner">
       <div class="nm-section-label">Common questions</div>
       <div class="nm-faq-grid">
-        <div class="nm-faq-item">
-          <p class="nm-faq-q">What does a typical set look like?</p>
+        <details class="nm-faq-item">
+          <summary>What does a typical set look like?</summary>
           <p class="nm-faq-a">A curated DJ set with live saxophone woven throughout — building from ambient to high-energy across the evening. We tailor the arc to your event and your crowd.</p>
-        </div>
-        <div class="nm-faq-item">
-          <p class="nm-faq-q">How long do you play?</p>
+        </details>
+        <details class="nm-faq-item">
+          <summary>How long do you play?</summary>
           <p class="nm-faq-a">Standard sets run 2–4 hours. We'll work with your timeline and venue to build a plan that fits.</p>
-        </div>
-        <div class="nm-faq-item">
-          <p class="nm-faq-q">Do you bring your own sound?</p>
+        </details>
+        <details class="nm-faq-item">
+          <summary>Do you bring your own sound?</summary>
           <p class="nm-faq-a">Yes. Professional PA, DJ setup, and all cabling included. We arrive, set up, and manage everything.</p>
-        </div>
-        <div class="nm-faq-item">
-          <p class="nm-faq-q">Can we request songs?</p>
+        </details>
+        <details class="nm-faq-item">
+          <summary>Can we request songs?</summary>
           <p class="nm-faq-a">We're happy to take guidance on the vibe — genres, mood, must-plays. We'll blend them into a set that feels intentional, not like a jukebox.</p>
-        </div>
+        </details>
       </div>
     </div>
   </section>
@@ -866,11 +883,11 @@
       <div class="nm-vids-label" data-n="04">See it live</div>
       <div class="nm-vids-grid">
         <div class="nm-vid-wrap">
-          <iframe src="https://www.youtube.com/embed/3MCTpvuChXU?rel=0&modestbranding=1&playsinline=1"
+          <iframe src="https://www.youtube.com/embed/3MCTpvuChXU?rel=0&modestbranding=1&playsinline=1&showinfo=0&iv_load_policy=3"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="nm-vid-wrap">
-          <iframe src="https://www.youtube.com/embed/grpdF0TVfIE?rel=0&modestbranding=1&playsinline=1"
+          <iframe src="https://www.youtube.com/embed/grpdF0TVfIE?rel=0&modestbranding=1&playsinline=1&showinfo=0&iv_load_policy=3"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
