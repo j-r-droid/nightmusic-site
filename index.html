@@ -15,7 +15,7 @@
 </head>
 <body style="margin:0;padding:0;background:#09090e;">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Syne+Mono&display=swap');
 
 .nm, .nm *, .nm *::before, .nm *::after {
   box-sizing: border-box;
@@ -34,7 +34,7 @@
 }
 
 .nm {
-  font-family: 'Syne Mono', monospace;
+  font-family: 'DM Sans', sans-serif;
   background: var(--bg);
   color: var(--cream);
   -webkit-font-smoothing: antialiased;
@@ -57,7 +57,7 @@
   position: absolute;
   top: 36px;
   left: 72px;
-  width: 200px;
+  width: 240px;
   z-index: 3;
   opacity: 0.92;
 }
@@ -108,6 +108,7 @@
 }
 
 .nm-kicker {
+  font-family: 'Syne Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -153,6 +154,7 @@
 }
 
 .nm-cta {
+  font-family: 'Syne Mono', monospace;
   display: inline-flex;
   align-items: center;
   gap: 20px;
@@ -202,6 +204,7 @@
 }
 
 .nm-marquee-item {
+  font-family: 'Syne Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -227,6 +230,7 @@
 }
 
 .nm-section-label {
+  font-family: 'Syne Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -787,7 +791,7 @@
     </div>
   </div>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS — uncomment when approved
   <section class="nm-testimonials">
     <div class="nm-testimonials-inner">
       <div class="nm-section-label">What people say</div>
@@ -803,12 +807,13 @@
       </div>
     </div>
   </section>
+  -->
 
   <!-- PHOTOS -->
   <div class="nm-photo">
     <div class="nm-photo-grid">
-      <img src="assets/nm-crowd.jpg" alt="Night Music performing — crowd view" loading="lazy">
-      <img src="assets/nm-stage.jpg" alt="Night Music — sax and DJ on stage" loading="lazy">
+      <img src="assets/nm-crowd.jpg" alt="Night Music performing — crowd view" loading="lazy" onclick="openLightbox(this.src)" style="cursor:pointer;">
+      <img src="assets/nm-stage.jpg" alt="Night Music — sax and DJ on stage" loading="lazy" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
   </div>
 
@@ -950,6 +955,24 @@ if (form) {
     });
   });
 }
+</script>
+<!-- LIGHTBOX -->
+<div id="nm-lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(9,9,14,0.95);cursor:pointer;justify-content:center;align-items:center;">
+  <img id="nm-lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;">
+  <span style="position:absolute;top:24px;right:32px;font-family:'Syne Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(237,232,225,0.5);">Close</span>
+</div>
+<script>
+function openLightbox(src) {
+  var lb = document.getElementById('nm-lightbox');
+  document.getElementById('nm-lightbox-img').src = src;
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('nm-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
