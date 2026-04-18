@@ -88,10 +88,6 @@
   inset: 0;
   pointer-events: none;
 }
-#hero-vid-container {
-  position: absolute;
-  inset: 0;
-}
 
 .nm-vbg iframe {
   position: absolute;
@@ -991,7 +987,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function nmToggleSound() {
-  if (!nmPlayer || !nmPlayer.isMuted) return;
+  if (!nmPlayer || typeof nmPlayer.isMuted !== 'function') return;
   var icon = document.getElementById('sound-icon');
   var label = document.getElementById('sound-label');
   if (nmMuted) {
