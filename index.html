@@ -88,6 +88,10 @@
   inset: 0;
   pointer-events: none;
 }
+#hero-vid-container {
+  position: absolute;
+  inset: 0;
+}
 
 .nm-vbg iframe {
   position: absolute;
@@ -731,6 +735,7 @@
 @media (max-width: 480px) {
   .nm-h1 { font-size: clamp(60px, 17vw, 80px); }
   .nm-stats-grid { grid-template-columns: 1fr 1fr; }
+  .nm-sound-btn { bottom: auto; top: 20px; right: 20px; }
 }
 </style>
 
@@ -742,8 +747,7 @@
   <!-- HERO -->
   <section class="nm-hero">
     <div class="nm-vbg">
-      <iframe id="hero-vid" src="https://www.youtube.com/embed/3MCTpvuChXU?autoplay=1&mute=1&loop=1&playlist=3MCTpvuChXU&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&start=300"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div id="hero-vid-container"></div>
     </div>
     <div class="nm-voverlay"></div>
     <button class="nm-sound-btn" id="sound-toggle" onclick="nmToggleSound()" aria-label="Toggle sound">
@@ -955,15 +959,47 @@
 </div>
 
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-// ── SOUND TOGGLE ──
+// ── SOUND TOGGLE (YouTube IFrame API) ──
+var nmPlayer;
 var nmMuted = true;
+
+function onYouTubeIframeAPIReady() {
+  nmPlayer = new YT.Player('hero-vid-container', {
+    videoId: '3MCTpvuChXU',
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      playlist: '3MCTpvuChXU',
+      controls: 0,
+      showinfo: 0,
+      rel: 0,
+      modestbranding: 1,
+      playsinline: 1,
+      start: 300
+    },
+    events: {
+      onReady: function(e) {
+        e.target.mute();
+        e.target.playVideo();
+      }
+    }
+  });
+  // The CSS on .nm-vbg iframe handles positioning
+}
+
 function nmToggleSound() {
-  var iframe = document.getElementById('hero-vid');
+  if (!nmPlayer || !nmPlayer.isMuted) return;
   var icon = document.getElementById('sound-icon');
   var label = document.getElementById('sound-label');
-  var cmd = nmMuted ? 'unMute' : 'mute';
-  iframe.contentWindow.postMessage(JSON.stringify({event:'command', func: cmd, args: []}), '*');
+  if (nmMuted) {
+    nmPlayer.unMute();
+    nmPlayer.setVolume(100);
+  } else {
+    nmPlayer.mute();
+  }
   nmMuted = !nmMuted;
   icon.textContent = nmMuted ? '🔇' : '🔊';
   label.textContent = nmMuted ? 'Sound off' : 'Sound on';
